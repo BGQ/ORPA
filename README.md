@@ -124,7 +124,7 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
     example:
               perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta --iqtree
       or
-          perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta 
+              perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta 
          
     parameters:
                -method=[Gblocks|trimAl|BMGE|noisy]   To choose which program to be used in alignment trimming. (Default: Gblocks).
