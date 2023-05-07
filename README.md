@@ -28,7 +28,7 @@ Article is on its way...(*^_^*) <br/>　
 
 　　ORPA also provides users with four trimming methods, namely Gblocks, trimAl, Noisy, and BMGE, which are the same as those offered by HomBlocks. Importantly, users can directly use the output results from ORPA to facilitate the construction of a phylogenetic tree. The built-in Iqtree option also can be chosen. Thus streamlining the sequence alignment process.<br/>
 ## Installation
-　　The framework of ORPA is written in Perl. No external installation is needed for ORPA. All the dependency's external executable files are placed under the bin directory. git clone https://github.com/fenghen360/ORPA.git or download the zip-compressed files into your work directory.
+　　The framework of ORPA is written in Perl. No external installation is needed for ORPA. All the dependency's external executable files are placed under the bin directory. git clone https://github.com/BGQ/ORPA.git or download the zip-compressed files into your work directory.
 
 
 ```bash
@@ -144,6 +144,7 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
     ```bash
     perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
     ```
+    note:
 <br/>
 
 - **Output files.**
