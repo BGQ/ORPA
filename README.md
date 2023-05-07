@@ -53,7 +53,7 @@ chmod 755 *
 ## Tutorial
 　　ORPA is not complex to use. You need to prepare the relevant organelle sequences into fasta files (fasta, fas, fa), and combine them into one file.
 Like these test sequence that were put in **18plant-Chloroplast/all.fasta**.<br/>
-The operation steps are shown in the following flowchart and GIF animation
+The operation steps are shown in the following flowchart and GIF animation.
 ```mermaid
 graph TD
     Start([Start]) --> Input["Input file
