@@ -122,9 +122,9 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
               perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta>
           
     example:
-              perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta --iqtree
+              perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
       or
-              perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta 
+              perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta 
          
     parameters:
                -method=[Gblocks|trimAl|BMGE|noisy]   To choose which program to be used in alignment trimming. (Default: Gblocks).
@@ -137,19 +137,19 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
   - 2.Construction of multiple sequence comparison matrix using ORPA. 
   
     ```bash
-    perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta
+    perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta
     ```
     ![](https://github.com/BGQ/ORPA-Tutorial/blob/main/06.gif)
   - 3.Construct the phylogenetic tree using ORPA and its built-in iqtree.
     ```bash
-    perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta --iqtree
+    perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
     ```
 <br/>
 
 - **Output files.**
   - 1.The most important result.
     ```bash
-    perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta
+    perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta
     ```
     This run was finished and resulted in an alignment file named "**output.fasta**"**.** Sequences in output.fasta were already aligned and trimmed, you can check it by aligners like MEGA, clustalx, or UGENE, and you can directly use the output.fasta file to construct a phylogenetic tree.<br/>
 
@@ -167,7 +167,7 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
  
   - 2.Results processed using iqtree parameters.
     ```bash
-    perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta --iqtree
+    perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
     ```  
     This run was finished and resulted in an alignment file named "**output.fasta**"**.** In addition, a folder named "output.fa_iqtree_results" has been created, which contains the "output.fa.treefile" results file built by the IQ-TREE software. This file can be visualized directly using programs such as FigTree or iTOL. 
 
