@@ -14,9 +14,9 @@ my $USAGE = 	"\nusage:
           perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta>
       
 example:
-          perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta --iqtree
+          perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
   or
-          perl ORPA.pl -method=trimAl file.aln seqdump.txt output.fasta 
+          perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta 
      
 parameters:
            -method=[Gblocks|trimAl|BMGE|noisy]   To choose which program to be used in alignment trimming. (Default: Gblocks).
