@@ -144,7 +144,6 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
     ```bash
     perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
     ```
-    note:
 <br/>
 
 - **Output files.**
