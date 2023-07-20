@@ -9,27 +9,33 @@
 #This  script is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of merchantability or fitness for a particular purpose.
 
 my $USAGE = 	"\nusage: 
+<general>:     
           perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --iqtree
   or
           perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta>
-      
-example:
-          perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
+
+
+<large numbers of sequences files>:
+          perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --rmdup
   or
-          perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta 
-     
+          perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --rmdup --iqtree
+
+
 parameters:
            -method=[Gblocks|trimAl|BMGE|noisy]   To choose which program to be used in alignment trimming. (Default: Gblocks).
            <file.aln>                            FASTA alignment file, which is downloaded from NCBI Multiple Sequence Alignment Viewer.
            <seqdump.txt>                         Complete sequence seqdump file,which is download from NCBI BLAST online tool results.
            <output.fasta>                        The final constructed multiple sequence alignment matrix file.
            --iqtree                              Optional, use built-in iqtree to construct phylogenetic tree.
-                                                 (Built-in Iqtree operating parameters:-st DNA -nt AUTO -bb 1000 -alrt 1000 -m MFP)\n";
+                                                 (Built-in Iqtree operating parameters:-st DNA -nt AUTO -bb 1000 -alrt 1000 -m MFP)
+           --rmdup                               Remove duplicate reference sequences of merge files with large numbers of sequences.\n";
 
 my $method;
 my $aln = $ARGV[1];
 my $seqdump = $ARGV[2];
 my $out = $ARGV[3];
+my $rmdup_out = "rmdup_$out";
+my $rmdup;
 my $iqtree;
 my $character_length;
 
@@ -48,6 +54,10 @@ foreach my $paras (@ARGV){
 	if ($paras=~/--iqtree/){
 	    $iqtree=1;
 	}
+        if ($paras=~/--rmdup/){
+            $rmdup=1;
+        }
+
 }
 if (!$ARGV[1]){
 		print $USAGE;
@@ -252,6 +262,13 @@ foreach my $id (@list) {
 close OUT;
 unlink ("$aln.fasta");
 
+if (defined $rmdup){
+system("./bin/seqkit rmdup -n $out -o $rmdup_out");
+system("rm $out ");
+system("mv $rmdup_out $out");
+}
+
+
 if (defined $iqtree){
 my $iqtree_dir=$out."_iqtree_results";
 warn "Constructed ML tree by iqtree\nPlease check results in the dir $iqtree_dir\n";
@@ -274,12 +291,3 @@ close(CAN);
 print "The extracted alignments were writen in $out\n";
 print "\nThe length of alignment is $character_length bp\n\n";
 print "ORPA DATA PREPRATION COMPLETED! ENJOY IT!!\n\n\n";
-
-
-
-
-
-
-
-
-
