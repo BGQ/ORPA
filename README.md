@@ -3,11 +3,13 @@ Article is on its way...(*^_^*) <br/>　
 
 ## Notes（First things first）
 
-1、Please contact with me (fenghen360@126.com) if you have any problems.
+1.Please contact with me (fenghen360@126.com) if you have any problems.
 
-2、In the sequence collection, the ID names must **not have duplicates**.
+2.In the sequence collection, the ID names must **not have duplicates**.
 
-3、When encountering character limitations while analyzing large numbers of sequences using the NCBI engine, please refer to Step of [**dealing with a large number of sequence files**](https://github.com/BGQ/ORPA/tree/main#dealing-with-a-large-number-of-sequence-files)
+3.Direct you to a basic usage [tutorial](https://github.com/BGQ/ORPA/tree/main#tutorial)
+
+4.When encountering character limitations while analyzing large numbers of sequences using the NCBI engine, please refer to Step of [**dealing with a large number of sequence files**](https://github.com/BGQ/ORPA/tree/main#dealing-with-a-large-number-of-sequence-files)
 
 # What is ORPA? 
 　　ORPA is a new and highly efficient pipeline that uses NCBI BLAST result files to construct multi-gene alignments. It can automatically parse the BLAST output and generate multiple sequence alignments for organelle genome comparisons in just five minutes. It can efficiently overcome the challenges of manual operations and large-scale data processing that exist in [HomBlocks](https://github.com/fenghen360/HomBlocks) (https://github.com/fenghen360/HomBlocks).<br/>
