@@ -189,7 +189,7 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
 <br/>
 
 ## Dealing with a large number of sequence files
-   Due to the character limit imposed by NCBI (maximum of 10,000,000,000 base pairs, approximately 10M), it is necessary to split large sequence files into smaller segments of less than 10M in size for distribution and alignment. The specific steps are as follows:
+    Due to the character limit imposed by NCBI, which allows a maximum of 10,000,000,000 base pairs (approximately 10M), it is necessary to split large sequence files into smaller segments for alignment. For the purpose of this example, we will use 5 sequences. The specific steps are outlined below:
 
    1.Choose one sequence as the reference sequence for the alignment of each subfile. And append the selected reference sequence to the start of each subfile.
    
