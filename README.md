@@ -1,6 +1,13 @@
 ## If you find this useful, please cite:
 Article is on its way...(*^_^*) <br/>　
 
+## Notes（First things first）
+
+1、Please contact with me (fenghen360@126.com) if you have any problems.
+
+2、In the sequence collection, the ID names must **not have duplicates**.
+
+3、When encountering character limitations while analyzing large numbers of sequences using the NCBI engine, please refer to Step of [**dealing with a large number of sequence files**](https://github.com/BGQ/ORPA/edit/main/README.md#dealing-with-a-large-number-of-sequence-files)
 
 # What is ORPA? 
 　　ORPA is a new and highly efficient pipeline that uses NCBI BLAST result files to construct multi-gene alignments. It can automatically parse the BLAST output and generate multiple sequence alignments for organelle genome comparisons in just five minutes. It can efficiently overcome the challenges of manual operations and large-scale data processing that exist in [HomBlocks](https://github.com/fenghen360/HomBlocks) (https://github.com/fenghen360/HomBlocks).<br/>
@@ -116,23 +123,25 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
     perl ORPA.pl
 
     # The print of screen should be like this
-    usage: 
-              perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --iqtree
+    usage:
+    <general>:     
+          perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --iqtree
+       or
+          perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta>
+
+    <large numbers of sequences files>:
+          perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --rmdup
       or
-              perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta>
-          
-    example:
-              perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta --iqtree
-      or
-              perl ORPA.pl -method=Gblocks file.aln seqdump.txt output.fasta 
-         
+          perl ORPA.pl -method=[Gblocks|trimAl|BMGE|noisy] <file.aln> <seqdump.txt> <output.fasta> --rmdup --iqtree
+
     parameters:
-               -method=[Gblocks|trimAl|BMGE|noisy]   To choose which program to be used in alignment trimming. (Default: Gblocks).
-               <file.aln>                            FASTA alignment file, which is downloaded from NCBI Multiple Sequence Alignment Viewer.
-               <seqdump.txt>                         Complete sequence seqdump file,which is download from NCBI BLAST online tool results.
-               <output.fasta>                        The final constructed multiple sequence alignment matrix file.
-               --iqtree                              Optional, use built-in iqtree to construct phylogenetic tree.
-                                                     (Built-in Iqtree operating parameters:-st DNA -nt AUTO -bb 1000 -alrt 1000 -m MFP)
+           -method=[Gblocks|trimAl|BMGE|noisy]   To choose which program to be used in alignment trimming. (Default: Gblocks).
+           <file.aln>                            FASTA alignment file, which is downloaded from NCBI Multiple Sequence Alignment Viewer.
+           <seqdump.txt>                         Complete sequence seqdump file,which is download from NCBI BLAST online tool results.
+           <output.fasta>                        The final constructed multiple sequence alignment matrix file.
+           --iqtree                              Optional, use built-in iqtree to construct phylogenetic tree.
+                                                 (Built-in Iqtree operating parameters:-st DNA -nt AUTO -bb 1000 -alrt 1000 -m MFP)
+           --rmdup                               Remove duplicate reference sequences of merge files with large numbers of sequences.
     ```
   - 2.Construction of multiple sequence comparison matrix using ORPA. 
   
@@ -176,6 +185,25 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
     
     
 <br/>
+
+## Dealing with a large number of sequence files
+   Due to the character limit imposed by NCBI (maximum of 10,000,000,000 base pairs, approximately 10M), it is necessary to split large sequence files into smaller segments of less than 10M in size for distribution and alignment. The specific steps are as follows:
+
+   1.Choose one sequence as the reference sequence for the alignment of each subfile. And append the selected reference sequence to the start of each subfile.
+   
+  ![](https://github.com/BGQ/ORPA-Tutorial/blob/main/rmdup-1.gif)
+
+   2.Perform the alignment and download the corresponding files (file.aln and seqdump.txt files) as per the instructions in the tutorial.
+    
+  ![](https://github.com/BGQ/ORPA-Tutorial/blob/main/rmdup-2.gif)
+    
+   3.Merge the corresponding file.aln and seqdump.txt files together to obtain the all.aln and all.txt files, which will serve as inputs for ORPA.
+
+  ![](https://github.com/BGQ/ORPA-Tutorial/blob/main/rmdup-3.gif)   
+
+   4.Run the ORPA --rmdup command to obtain the corresponding sequence alignment matrix.
+
+  ![](https://github.com/BGQ/ORPA-Tutorial/blob/main/rmdup-4.gif)   
 
 ## Advantages
 - ### Comparison of tree topologies constructed from ORPA and HomBlocks sequence alignment results.<br/>
@@ -234,6 +262,3 @@ If you are unable to open the MSA viewer page window smoothly, please refer to t
 
 　　In summary, ORPA benefits from its ability to rapidly construct phylogenetic trees, which gives it considerable promise in the realm of systematic taxonomy, as shown by the previous use cases.
 
-## Notes
-
-Please contact with me (fenghen360@126.com) if you have any problems.
