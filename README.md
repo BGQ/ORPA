@@ -1,5 +1,6 @@
 ## If you find this useful, please cite:
-Article is on its way...(*^_^*) <br/>　
+Please cite this article as: 
+[Bi, G., Luan, X., Yan, J., ORPA: a fast and efficient phylogenetic analysis method for constructing genome-wide alignments of organelle genomes, Journal of Genetics and Genomics, https://doi.org/10.1016/j.jgg.2023.08.006.](https://www.sciencedirect.com/science/article/abs/pii/S1673852723001789?fr=RR-2&ref=pdf_download&rr=7fcc6c790fa71573)<br/>　
 
 ## Notes（First things first）
 
